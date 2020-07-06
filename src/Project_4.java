@@ -9,17 +9,33 @@ import java.io.FileNotFoundException;
 
 public class Project_4 
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws FileNotFoundException
 	{
-		
+		final String DICTIONARY_NAME = "dictionary.txt";
+		String test = readFile(DICTIONARY_NAME);
 	}
 	
 	/** This method returns an array that contains all the words in a file
 	 * @param 	filename the name of the file that contains the words
 	 * @return 	a string array containing all the words in the file
 	 */
-	String readFile(String filename) throws FileNotFoundException
+	static String readFile(String filename) throws FileNotFoundException
 	{
+		//Create a Scanner to read the file
+		Scanner file = new Scanner(new File(filename));
+		
+		//Find the number of lines in the file
+		int numLines = 0;
+		while(file.hasNextLine())
+		{
+			file.nextLine();
+			numLines += 1;
+		}
+		
+		System.out.println(numLines);
+		
+		//Close the scanner to prevent errors and return the result
+		file.close();
 		return "";
 	}
 	
