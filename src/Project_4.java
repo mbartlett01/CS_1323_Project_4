@@ -16,6 +16,8 @@ public class Project_4
 		String[] testString = readFile(DICTIONARY_NAME);
 		String testWord = chooseRandomWord(testString);
 		System.out.println(testWord);
+		String poundString = createPound(testWord);
+		System.out.println(poundString);
 		
 	}
 	
@@ -57,9 +59,16 @@ public class Project_4
 	 * @param word	the word to replace with pound symbols
 	 * @return		a string array containing all words in the file
 	 */
-	String createPound(String word)
+	static String createPound(String word)
 	{
-		return "";
+		String poundString = "";
+		
+		//Add a pound symbol for each letter in the word
+		for(int i = 0; i < word.length(); i++)
+		{
+			poundString += "#";
+		}
+		return poundString;
 	}
 	
 	/** This method takes a guess and checks to see if it is in the word. If it is
@@ -69,7 +78,7 @@ public class Project_4
 	 * @param 	pound	a string containing pound symbols representing unguessed letters
 	 * @return	the updated pound string
 	 */
-	String guessWord(String guess, String word, String pound)
+	static String guessWord(String guess, String word, String pound)
 	{
 		return "";
 	}
