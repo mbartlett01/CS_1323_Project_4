@@ -12,15 +12,48 @@ public class Project_4
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
+		//Initialize variables
 		final String DICTIONARY_NAME = "dictionary.txt";
-		String[] testString = readFile(DICTIONARY_NAME);
-		String testWord = chooseRandomWord(testString);
-		System.out.println(testWord);
-		String poundString = createPound(testWord);
-		System.out.println(poundString);
-		String updatedPoundString = guessWord("ejh", testWord, poundString);
-		System.out.println(updatedPoundString);
+		int numWrongGuesses;
+		String answerWord;
+		String hiddenWord;
+		String userGuess;
+		boolean playing = true;
+		String[] wordArray = readFile(DICTIONARY_NAME);
+		Scanner keyboard = new Scanner(System.in);
 		
+		//Start the main game loop
+		while(playing)
+		{
+			//Generate a word from the word array
+			answerWord = chooseRandomWord(wordArray);
+			hiddenWord = createPound(answerWord);
+			numWrongGuesses = 0;
+			
+			//Ask for guesses while the word is unguessed and the user still has chances
+			while((numWrongGuesses < 7) && hiddenWord.contains("#"))
+			{
+				//Get the user input
+				System.out.println("Guess any letter in the word");
+				System.out.println(hiddenWord);
+				userGuess = keyboard.nextLine();
+				
+				//Update the word if the player guessed correctly
+				if(answerWord.contains(userGuess))
+				{
+					hiddenWord = guessWord(userGuess, answerWord, hiddenWord);
+				}
+				else
+				{
+					System.out.println("Wrong guess, try again");
+					numWrongGuesses += 1;
+				}
+				
+			}
+			
+			
+			
+		}
 	}
 	
 	/** This method returns an array that contains all the words in a file
