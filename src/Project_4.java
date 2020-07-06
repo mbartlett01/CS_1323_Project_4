@@ -47,6 +47,7 @@ public class Project_4
 				{
 					System.out.println("Wrong guess, try again");
 					numWrongGuesses += 1;
+					printHangman(numWrongGuesses);
 				}
 				
 			}
@@ -155,5 +156,93 @@ public class Project_4
 		
 		//Return the chosen word
 		return words[randomIndex];
+	}
+	
+	/** This method prints out the hangman when a wrong guess is given
+	 * 
+	 * @param numWrongGuesses	the number of times the player has been wrong
+	 */
+	static void printHangman(int numWrongGuesses)
+	{
+		switch(numWrongGuesses)
+		{
+		case 1:
+			System.out.println("\r\n" + 
+					"\r\n" + 
+					"\r\n" + 
+					"\r\n" + 
+					"___|___");
+			break;
+		case 2:
+			System.out.println("   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"___|___");
+			break;
+		case 3:
+			System.out.println("   ____________\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   | \r\n" + 
+					"___|___");
+			break;
+		case 4:
+			System.out.println("   ____________\r\n" + 
+					"   |          _|_\r\n" + 
+					"   |         /   \\\r\n" + 
+					"   |        |     |\r\n" + 
+					"   |         \\_ _/\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"   |\r\n" + 
+					"___|___");
+			break;
+		case 5:
+			System.out.println("   ____________\r\n" + 
+					"   |          _|_\r\n" + 
+					"   |         /   \\\r\n" + 
+					"   |        |     |\r\n" + 
+					"   |         \\_ _/\r\n" + 
+					"   |           |\r\n" + 
+					"   |           |\r\n" + 
+					"   |\r\n" + 
+					"___|___");
+			break;
+		case 6:
+			System.out.println("   ____________\r\n" + 
+					"   |          _|_\r\n" + 
+					"   |         /   \\\r\n" + 
+					"   |        |     |\r\n" + 
+					"   |         \\_ _/\r\n" + 
+					"   |           |\r\n" + 
+					"   |           |\r\n" + 
+					"   |          / \\ \r\n" + 
+					"___|___      /   \\");
+			break;
+		case 7:
+			System.out.println("GAME OVER!\r\n" + 
+					"   ____________\r\n" + 
+					"   |          _|_\r\n" + 
+					"   |         /   \\\r\n" + 
+					"   |        |     |\r\n" + 
+					"   |         \\_ _/\r\n" + 
+					"   |          _|_\r\n" + 
+					"   |         / | \\\r\n" + 
+					"   |          / \\ \r\n" + 
+					"___|___      /   \\");
+			break;
+		default:
+			System.out.println("guess number error");
+			break;
+		
+		}
 	}
 }
