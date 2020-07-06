@@ -12,14 +12,14 @@ public class Project_4
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		final String DICTIONARY_NAME = "dictionary.txt";
-		String test = readFile(DICTIONARY_NAME);
+		String[] test = readFile(DICTIONARY_NAME);
 	}
 	
 	/** This method returns an array that contains all the words in a file
 	 * @param 	filename the name of the file that contains the words
 	 * @return 	a string array containing all the words in the file
 	 */
-	static String readFile(String filename) throws FileNotFoundException
+	static String[] readFile(String filename) throws FileNotFoundException
 	{
 		//Create a Scanner to read the file
 		Scanner file = new Scanner(new File(filename));
@@ -32,11 +32,20 @@ public class Project_4
 			numLines += 1;
 		}
 		
-		System.out.println(numLines);
+		//Close and reopen the Scanner to reset it to the start of the file
+		file.close();
+		file = new Scanner(new File(filename));
+		
+		//Fill an array with all the words
+		String[] wordArray = new String[numLines];
+		for(int i = 0; i < wordArray.length; i++)
+		{
+			wordArray[i] = file.nextLine();
+		}
 		
 		//Close the scanner to prevent errors and return the result
 		file.close();
-		return "";
+		return wordArray;
 	}
 	
 	/** This method creates an array full of pound symbols representing unguessed
