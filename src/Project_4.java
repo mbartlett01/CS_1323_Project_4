@@ -1,4 +1,4 @@
-/** This is a program that plays the game hangman
+/** This is a program that plays the game Hangman
  *  @author Michael Bartlett
  *  @version 1.0
  */
@@ -6,13 +6,17 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.Math;
 
 public class Project_4 
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		final String DICTIONARY_NAME = "dictionary.txt";
-		String[] test = readFile(DICTIONARY_NAME);
+		String[] testString = readFile(DICTIONARY_NAME);
+		String testWord = chooseRandomWord(testString);
+		System.out.println(testWord);
+		
 	}
 	
 	/** This method returns an array that contains all the words in a file
@@ -74,8 +78,12 @@ public class Project_4
 	 * @param 	words	the array containing the words to be chosen from
 	 * @return	a word from the array chosen at random
 	 */
-	String chooseRandomWord(String[] words)
+	static String chooseRandomWord(String[] words)
 	{
-		return "";
+		//Get a random number and scale it to the size of the dictionary
+		int randomIndex = (int)(Math.random() * words.length);
+		
+		//Return the chosen word
+		return words[randomIndex];
 	}
 }
