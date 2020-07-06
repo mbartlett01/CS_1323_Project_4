@@ -18,6 +18,8 @@ public class Project_4
 		System.out.println(testWord);
 		String poundString = createPound(testWord);
 		System.out.println(poundString);
+		String updatedPoundString = guessWord("ejh", testWord, poundString);
+		System.out.println(updatedPoundString);
 		
 	}
 	
@@ -80,7 +82,22 @@ public class Project_4
 	 */
 	static String guessWord(String guess, String word, String pound)
 	{
-		return "";
+		String newPoundString = "";
+		
+		//Loop through each letter in the word
+		for(int i = 0; i < word.length(); i++)
+		{
+			//See if the letter matches the guess
+			if(word.charAt(i) == guess.charAt(0))
+			{
+				newPoundString += guess.charAt(0);
+			}
+			else
+			{
+				newPoundString += pound.charAt(i);
+			}
+		}
+		return newPoundString;
 	}
 	
 	/** This method chooses a random word from an array of words
