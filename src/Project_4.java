@@ -51,8 +51,19 @@ public class Project_4
 				
 			}
 			
+			//Print the end message
+			if(!hiddenWord.contains("#"))
+			{
+				System.out.println("Correct! you have won this game. The word is: " + answerWord);
+			}
+			else
+			{
+				System.out.println("GAME OVER! The word was " + answerWord);
+			}
 			
-			
+			//Ask the user of they want to play again
+			System.out.println("Do you still want to play?");
+			playing = ((keyboard.nextLine()).equals("yes"));
 		}
 	}
 	
